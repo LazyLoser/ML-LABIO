@@ -1,0 +1,11 @@
+﻿company,fuel-type,num of doors,body-style,num of cylinders,rating
+audi,gas,2,seden,five,5
+audi ,gas,6,wegon,five,5
+bmw,gas,2,sedan,four,5
+bmw,gas,2,sedan,four,5
+audi,gas,4,sedan,six,5
+bmw,gas,2,wegon,five,5
+bmw,gas,2,sedan,five,5
+benz,diesel,4,wegon,five,5
+benz,diesel,4,wegon,five,5
+benz,diesel,4,sedan,five,5
