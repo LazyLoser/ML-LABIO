@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+img = cv2.imread('wallpaper.jpg',cv2.IMREAD_UNCHANGED)
+kernal = cv2.getStructuringElement(cv2.MORPH_RECT,(3,3))
+image_1=cv2.erode(img,kernal,iterations=1)
+img_erosion=cv2.erode(img,kernal,iterations=1)
+subt = cv2.subtract(img,img_erosion)
+img_dilation = cv2.dilate(img,kernal,iterations=1)
+cv2.imshow('Input',img)
+cv2.waitKey(10)
+cv2.imshow('Erosion',img_erosion)
+cv2.waitKey(20)
+cv2.imshow('Subtacted image',subt)
+cv2.waitKey(30)
+cv2.imshow('Dilation',img_dilation)
+cv2.waitKey(40)
+cv2.imshow('image_1',image_1)
+cv2.waitKey(50)

@@ -1,0 +1,80 @@
+1.
+import cv2
+image=cv2.imread('C:/Users/harsh/Downloads/tictactoe.png')
+height,width=image.shape[:2]
+mid_height=height//2
+mid_width=width//2
+up=image[:mid_height, :mid_width]
+cv2.imshow('Up',up)
+down=image[mid_height:,:mid_width]
+cv2.imshow('Down',down)
+right=image[:mid_height,mid_width:]
+cv2.imshow('Right',right)
+left=image[mid_height:,mid_width:]
+cv2.imshow('Left',left)
+cv2.imwrite('up.jpg',up)
+cv2.imwrite('down.jpg',down)
+cv2.imwrite('right.jpg',right)
+cv2.imwrite('left.jpg',left)
+
+
+2.
+import cv2
+import numpy as np        
+image = cv2.imread('D:/image/tictactoe.png')        
+height, width = image.shape[:2]         
+center = (width/2, height/2)        
+rotate_matrix = cv2.getRotationMatrix2D(center=center, angle=45,scale=1)      
+rotated_image = cv2.warpAffine(src=image, M=rotate_matrix,dsize=(width, height))
+cv2.imshow('Original image', image)
+cv2.imshow('Rotated image', rotated_image)
+cv2.imwrite('rotated_image.jpg', rotated_image)
+tx, ty = width / 4, height / 4
+translation_matrix = np.array([[1, 0, tx],[0, 1, ty]], dtype=np.float32)
+translated_image = cv2.warpAffine(src=image, M=translation_matrix,dsize=(width, height))
+cv2.imshow('Translated image', translated_image)
+cv2.imwrite('translated_image.jpg', translated_image)
+
+
+3.
+import cv2
+import numpy as np
+img = cv2.imread('D:/image/tictactoe.png', 1)
+kernel = np.ones((3, 3), np.uint8)
+img_erosion = cv2.erode(img, kernel, iterations=1)
+subt=cv2.subtract(img,img_erosion)
+img_dilation = cv2.dilate(img, kernel, iterations=1)
+cv2.imshow('Input', img)
+cv2.imshow('Erosion', img_erosion)
+cv2.imshow('Subtracted_image',subt)
+cv2.imshow('Dilation', img_dilation)
+cv2.waitKey(0)
+
+
+4.
+import cv2
+pic = cv2.imread('D:/image/tictactoe.png')
+cv2.imshow('',pic)
+print('Type of the image : ',type(pic))
+print('Shape of the image : {}'.format(pic.shape))
+print('Image Height : {}'.format(pic.shape[0]))
+print('Image Width : {}'.format(pic.shape[1]))
+megapixels = (pic.shape[0]*pic.shape[1]/1000000)
+print('Megapixels : {}'.format(megapixels))
+print('Dimension of Image : {}'.format(pic.ndim))
+print('Value of only R channel {}'.format(pic[100, 50, 0])) #Red
+print('Value of only G channel {}'.format(pic[100, 50, 1])) #Green
+print('Value of only B channel {}'.format(pic[100, 50, 2])) #Blue
+
+
+5.
+import cv2
+import numpy as np
+img=cv2.imread('D:/image/tictactoe.png',0)
+enhanced=cv2.equalizeHist(img)
+ret,threshold=cv2.threshold(enhanced,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+cv2.imshow('original',img)
+cv2.imshow('enchanced',enhanced)
+cv2.imshow('segmented',threshold)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
