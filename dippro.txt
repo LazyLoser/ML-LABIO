@@ -1,0 +1,154 @@
+import cv2
+import pip
+import numpy as np
+img = cv2.imread('wallpaper.jpg',cv2.IMREAD_UNCHANGED)
+cv2.imshow(' ',img)
+img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+height = img.shape[0]
+width = img.shape[1]
+width_cutoff = width // 2
+l1 = img[:, :width_cutoff]
+l2 = img[:, width_cutoff:]
+l1 = cv2.rotate(l1, cv2.ROTATE_90_COUNTERCLOCKWISE)
+cv2.imwrite("one_horisont_1.jpg", l1)
+cv2.imshow("one_horisont_1.jpg", l1)
+cv2.waitKey(20)
+l2 = cv2.rotate(l2, cv2.ROTATE_90_COUNTERCLOCKWISE)
+cv2.imwrite("one_horisont_2.jpg", l2)
+cv2.imshow("one_horisont_2.jpg", l2)
+cv2.waitKey(20)
+img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+height = img.shape[0]
+width = img.shape[1]
+width_cutoff = width // 2
+r1 = img[:, :width_cutoff]
+r2 = img[:, width_cutoff:]
+r1 = cv2.rotate(r1, cv2.ROTATE_90_COUNTERCLOCKWISE)
+cv2.imwrite("second_vhorisont_1.jpg", r1)
+cv2.imshow("second_vhorisont_1.jpg", r1)
+cv2.waitKey(20)
+r2 = cv2.rotate(r2, cv2.ROTATE_90_COUNTERCLOCKWISE)
+cv2.imwrite("second_horisont_2.jpg", r2)
+cv2.imshow("second_vhorisont_2.jpg", r2)
+cv2.waitKey(20)
+
+
+
+
+import cv2
+import numpy as np
+image = cv2.imread('wallpaper.jpg')
+height, width = image.shape[:2]   
+center = (width/2, height/2)
+rotate_matrix = cv2.getRotationMatrix2D(center=center, angle=45,scale=1)
+rotated_image = cv2.warpAffine(src=image, M=rotate_matrix,dsize=(width, height))
+cv2.imshow('Original image', image)
+cv2.imshow('Rotated image', rotated_image)
+cv2.waitKey(0)
+cv2.imwrite('rotated_image.jpg', rotated_image)
+image = cv2.imread('wallpaper.jpg')
+height, width = image.shape[:2]
+tx, ty = width / 4, height / 4
+translation_matrix = np.array([[1, 0, tx],[0, 1, ty]], dtype=np.float32)
+translated_image = cv2.warpAffine(src=image, M=translation_matrix,dsize=(width, height))
+cv2.imshow('Translated image', translated_image)
+cv2.imshow('Original image', image)
+cv2.waitKey(0)
+cv2.imwrite('translated_image.jpg', translated_image)
+
+
+
+
+
+import cv2
+import numpy as np
+img = cv2.imread('wallpaper.jpg',cv2.IMREAD_UNCHANGED)
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
+image_1 = cv2.erode(img, kernel, iterations=1)
+img_erosion = cv2.erode(img,kernel,iterations=1)
+subt=cv2.subtract(img,img_erosion)
+img_dilation = cv2.dilate(img,kernel,iterations=1)
+cv2.imshow('Input',img)
+cv2.waitKey(10)
+cv2.imshow('Erosion',img_erosion)
+cv2.waitKey(20)
+cv2.imshow('Subtracted image',subt)
+cv2.waitKey(30)
+cv2.imshow('Dilation',img_dilation)
+cv2.waitKey(40)
+cv2.imshow(image_1)
+cv2.waitKey(50)
+
+
+
+import imageio.v2 as imageio
+import matplotlib.pyplot as plt
+pic = imageio.imread('wallpaper.jpg')
+plt.imshow(pic)
+print('Type of the image : ',type(pic))
+print('Shape of the image : {}'.format(pic.shape))
+print('Image Height : {}'.format(pic.shape[0]))
+print('Image Width : {}'.format(pic.shape[1]))
+megapixels = (pic.shape[0]*pic.shape[1]/1000000)
+print('Megapixels : {}'.format(megapixels))
+print('Dimension of Image : {}'.format(pic.ndim))
+print('Value of only R channel {}'.format(pic[100, 50, 0])) #Red
+print('Value of only G channel {}'.format(pic[100, 50, 1])) #Green
+print('Value of only B channel {}'.format(pic[100, 50, 2])) #Blue
+
+
+
+Enhancement:
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+image = cv2.imread("C:/Users/harsh/Downloads/wallpaperflare.com_wallpaper.jpg")
+plt.subplot(1, 2, 1)
+plt.title("Original")
+plt.imshow(image)
+brightness = 10 
+contrast = 2.3  
+image2 = cv2.addWeighted(image, contrast, np.zeros(image.shape, image.dtype), 0, brightness)
+cv2.imwrite('modified_image.jpg', image2)
+plt.subplot(1, 2, 2)
+plt.title("Brightness & contrast")
+plt.imshow(image2)
+plt.show()
+kernel = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
+sharpened_image = cv2.filter2D(image, -1, kernel)
+cv2.imwrite('sharpened_image.jpg', sharpened_image)
+plt.subplot(1, 2, 2)
+plt.title("Sharpening")
+plt.imshow(sharpened_image)
+plt.show()
+
+#Segmentation:
+import cv2
+import numpy as np
+image = cv2.imread('C:/Users/harsh/Downloads/wallpaperflare.com_wallpaper.jpg')
+cv2.waitKey(0)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+edged = cv2.Canny(gray, 30, 200)
+cv2.waitKey(0)
+contours, hierarchy = cv2.findContours(edged,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
+cv2.imshow('Canny Edges After Contouring', edged)
+cv2.waitKey(0)
+
+print("Number of Contours found = " + str(len(contours)))
+cv2.drawContours(image, contours, -1, (0, 255, 0), 3)
+cv2.imshow('Contours', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+
+
+
+
+
+
+
+
+
