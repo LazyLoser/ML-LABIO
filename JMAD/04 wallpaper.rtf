@@ -1,0 +1,112 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Italic;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs26 \cf0 04 wallpaper\
+Xml\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 <?xml version="1.0" encoding="utf-8"?>\
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"\
+    xmlns:app="http://schemas.android.com/apk/res-auto"\
+    xmlns:tools="http://schemas.android.com/tools"\
+    android:layout_width="match_parent"\
+    android:layout_height="match_parent"\
+    tools:context=".MainActivity">\
+    <Button\
+        android:id="@+id/button1" \
+        android:layout_width="wrap_content" \
+        android:layout_height="wrap_content" \
+        android:layout_alignParentEnd="true"\
+        android:layout_alignParentRight="true" \
+        android:layout_alignParentBottom="true" \
+        android:layout_marginEnd="167dp" \
+        android:layout_marginRight="167dp"\
+        android:layout_marginBottom="409dp" \
+        android:text="CLICK HERE" />\
+</RelativeLayout>\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Java\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 package com.example.a04;\
+import androidx.appcompat.app.AppCompatActivity;\
+import android.app.WallpaperManager;\
+import android.graphics.Bitmap;\
+import android.graphics.BitmapFactory;\
+import android.graphics.drawable.BitmapDrawable;\
+import android.graphics.drawable.Drawable;\
+import android.os.Bundle;\
+import android.os.Handler;\
+import android.view.View;\
+import android.widget.Button;\
+import android.widget.Toast;\
+import java.io.IOException;\
+import java.util.Timer;\
+import java.util.TimerTask;\
+public class MainActivity extends AppCompatActivity \{ Button wallpaperChange;\
+    Timer mytimer;\
+    Drawable drawable;\
+    WallpaperManager wpm; int prev=1;\
+    @Override\
+    protected void onCreate(Bundle savedInstanceState) \{\
+        super.onCreate(savedInstanceState); setContentView(R.layout.
+\f1\i activity_main
+\f0\i0 );\
+        mytimer=new Timer();\
+        wpm = WallpaperManager.
+\f1\i getInstance
+\f0\i0 (this); wallpaperChange=(Button)findViewById(R.id.
+\f1\i button1
+\f0\i0 ); wallpaperChange.setOnClickListener(new View.OnClickListener() \{\
+            @Override public void onClick(View view) \{\
+                setwallpaper(); \}\
+        \}); \}\
+    private void setwallpaper() \{\
+        Toast.
+\f1\i makeText
+\f0\i0 (this,"setting Wallpaper please wait.",Toast.
+\f1\i LENGTH_LONG
+\f0\i0 ).show();\
+        mytimer.schedule(new TimerTask() \{ @Override\
+        public void run()\
+        \{\
+            if(prev==1) \{\
+                drawable = getResources().getDrawable(R.drawable.
+\f1\i i1
+\f0\i0 ); prev = 2;\
+            \}\
+            else if(prev==2) \{\
+                drawable = getResources().getDrawable(R.drawable.
+\f1\i i2
+\f0\i0 ); prev=3; \}\
+            else if(prev==3) \{\
+                drawable = getResources().getDrawable(R.drawable.
+\f1\i i3
+\f0\i0 ); prev=4;\
+            \}\
+            else if(prev==4) \{\
+                drawable = getResources().getDrawable(R.drawable.
+\f1\i i4
+\f0\i0 ); prev=5; \}\
+            else if(prev==5) \{\
+                drawable = getResources().getDrawable(R.drawable.
+\f1\i i5
+\f0\i0 ); prev=1;\
+            \}\
+            Bitmap wallpaper = ((BitmapDrawable)drawable).getBitmap(); try \{ wpm.setBitmap(wallpaper);\
+        \}\
+        catch (IOException e) \{ e.printStackTrace(); \}\
+        \}\
+        \},0,30000);\
+    \} \}\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+}

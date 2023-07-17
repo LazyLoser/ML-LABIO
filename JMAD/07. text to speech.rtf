@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Italic;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat7\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f0\fs26 \cf0 {\listtext	0.	}Text2Speech\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Xml\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 <?xml version="1.0" encoding="utf-8"?>\
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"\
+    xmlns:app="http://schemas.android.com/apk/res-auto"\
+    xmlns:tools="http://schemas.android.com/tools"\
+    android:layout_width="match_parent"\
+    android:layout_height="match_parent"\
+    tools:context=".MainActivity">\
+\
+    <TextView\
+        android:id="@+id/textView"\
+        android:layout_width="335dp"\
+        android:layout_height="wrap_content"\
+        android:layout_alignParentEnd="true"\
+        android:layout_alignParentBottom="true"\
+        android:layout_marginEnd="21dp"\
+        android:layout_marginBottom="486dp"\
+        android:text="Text2Speech"\
+        android:textSize="30sp"\
+        />\
+\
+    <EditText\
+        android:id="@+id/editText"\
+        android:layout_width="wrap_content"\
+        android:layout_height="wrap_content"\
+        android:layout_alignParentEnd="true"\
+        android:layout_alignParentBottom="true"\
+        android:layout_marginEnd="142dp"\
+        android:layout_marginBottom="377dp"\
+        android:ems="10"\
+        android:hint="Enter text here"\
+        android:inputType="textPersonName"\
+        android:minHeight="48dp" />\
+\
+    <Button\
+        android:id="@+id/convert"\
+        android:layout_width="wrap_content"\
+        android:layout_height="wrap_content"\
+        android:layout_alignParentEnd="true"\
+        android:layout_alignParentBottom="true"\
+        android:layout_marginEnd="196dp"\
+        android:layout_marginBottom="236dp"\
+        android:background="#6CEC71"\
+        android:onClick="convert"\
+        android:text="CONVERT"\
+        android:textColor="#455A64" />\
+</RelativeLayout>\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+Java\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 package com.example.a07;\
+\
+ import androidx.appcompat.app.AppCompatActivity;\
+ import android.os.Bundle;\
+import android.speech.tts.TextToSpeech;\
+import android.view.View;\
+import android.widget.EditText;\
+import java.util.Locale;\
+public class MainActivity extends AppCompatActivity\
+\{ EditText e1;\
+    TextToSpeech t1;\
+    @Override\
+    protected void onCreate(Bundle savedInstanceState)\
+    \{\
+        super.onCreate(savedInstanceState);\
+        setContentView(R.layout.
+\f1\i activity_main
+\f0\i0 );\
+        e1=findViewById(R.id.
+\f1\i editText
+\f0\i0 );\
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener()\
+        \{\
+            @Override\
+            public void onInit(int status)\
+            \{\
+                if(status!=TextToSpeech.
+\f1\i ERROR
+\f0\i0 )\
+                \{ t1.setLanguage(Locale.
+\f1\i UK
+\f0\i0 );\
+                \}\
+            \}\
+        \});\
+    \}\
+    public void convert(View V)\
+    \{\
+        String tospeak=e1.getText().toString();\
+        t1.speak(tospeak,TextToSpeech.
+\f1\i QUEUE_FLUSH
+\f0\i0 ,null);\
+    \}\
+\}\
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+}

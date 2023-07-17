@@ -1,0 +1,541 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\partightenfactor0
+
+\f0\b\fs40 \cf0 2.Calculator\
+\
+Create refs.xml file in values new>xml>value file
+\f1\b0\fs26 \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 mainactivity.ml\
+\
+<?xml version="1.0" encoding="utf-8"?>\
+<LinearLayout\
+    xmlns:android="http://schemas.android.com/apk/res/android"\
+    xmlns:app="http://schemas.android.com/apk/res-auto"\
+    xmlns:tools="http://schemas.android.com/tools"\
+    android:layout_width="match_parent"\
+    android:layout_height="match_parent"\
+    android:orientation="vertical"\
+    android:weightSum="9"\
+    tools:context=".MainActivity">\
+\
+    <TextView\
+        android:id="@+id/input_user"\
+        android:layout_width="match_parent"\
+        android:layout_height="54dp"\
+        android:layout_weight="2"\
+        android:background="@drawable/bgcolor2"\
+        android:gravity="center|end"\
+        android:hint="0"\
+        android:maxLength="14"\
+        android:padding="10dp"\
+        android:textColor="#FFFFFF"\
+        android:textColorHint="#795548"\
+        android:textSize="30sp" />\
+\
+    <TextView\
+        android:id="@+id/sign_user"\
+        android:layout_width="match_parent"\
+        android:layout_height="22dp"\
+        android:layout_weight="1"\
+        android:background="@drawable/bgcolor2"\
+        android:gravity="center|end"\
+        android:padding="10dp"\
+        android:textColor="#FFFFFF"\
+        android:textColorHint="#000000"\
+        android:textSize="28sp" />\
+\
+    <LinearLayout\
+        android:layout_width="match_parent"\
+        android:layout_height="4dp"\
+        android:layout_weight="1"\
+        android:orientation="horizontal"\
+        android:weightSum="4">\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_7"\
+            android:text="7"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_8"\
+            android:text="8"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_9"\
+            android:text="9"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:onClick="btn_add"\
+            android:text="+"\
+            android:textColor="#795548"\
+            android:textSize="32sp" />\
+\
+    </LinearLayout>\
+\
+    <LinearLayout\
+        android:layout_width="match_parent"\
+        android:layout_height="4dp"\
+        android:layout_weight="1"\
+        android:orientation="horizontal"\
+        android:weightSum="4">\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_4"\
+            android:text="4"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_5"\
+            android:text="5"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_6"\
+            android:text="6"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:onClick="btn_subtract"\
+            android:text="-"\
+            android:textColor="#795548"\
+            android:textSize="32sp"\
+            />\
+    </LinearLayout>\
+\
+    <LinearLayout\
+        android:layout_width="match_parent"\
+        android:layout_height="4dp"\
+        android:layout_weight="1"\
+        android:orientation="horizontal"\
+        android:weightSum="4">\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_1"\
+            android:text="1"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_2"\
+            android:text="2"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_3"\
+            android:text="3"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:onClick="btn_multiply"\
+            android:text="*"\
+            android:textColor="#795548"\
+            android:textSize="32sp" />\
+\
+    </LinearLayout>\
+\
+    <LinearLayout\
+        android:layout_width="match_parent"\
+        android:layout_height="4dp"\
+        android:layout_weight="1"\
+        android:orientation="horizontal"\
+        android:weightSum="4">\
+\
+        <View\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="0"\
+            android:background="@drawable/background_btn1" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="3"\
+            android:background="@drawable/background_btn1"\
+            android:onClick="btn_0"\
+            android:text="0"\
+            android:textColor="@color/BlackText"\
+            android:textSize="32sp" />\
+\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+             android:onClick="btn_divide"\
+            android:text="/"\
+            android:textColor="#795548"\
+            android:textSize="32sp" />\
+\
+\
+    </LinearLayout>\
+\
+    <LinearLayout\
+        android:layout_width="match_parent"\
+        android:layout_height="26dp"\
+        android:layout_weight="1"\
+        android:orientation="horizontal"\
+        android:weightSum="10">\
+\
+        <ImageButton\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="20dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+             android:onClick="btn_delete"\
+            android:text="D"\
+            android:textColor="@color/BlackText"\
+            android:textSize="30sp"\
+            tools:ignore="SpeakableTextPresentCheck" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="20dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="1"\
+            android:onClick="btn_clear"\
+            android:text="C"\
+            android:textColor="@color/BlackText"\
+            android:textSize="30sp" />\
+\
+        <Button\
+            style="@style/Widget.AppCompat.Button.Borderless"\
+            android:layout_width="0dp"\
+            android:layout_height="match_parent"\
+            android:layout_weight="8"\
+            android:onClick="btn_equal"\
+            android:text="="\
+            android:textColor="#795548"\
+            android:textSize="32sp" />\
+\
+\
+    </LinearLayout>\
+\
+\
+</LinearLayout>\
+\
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Refs.xml\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 <?xml version="1.0" encoding="utf-8"?>\
+<resources>\
+    <drawable name="bgcolor2">#000000</drawable>\
+    <drawable name="bgcolor">#1CE4BC</drawable>\
+    <drawable name="background_btn1">#FFFFFF</drawable>\
+    <drawable name="background_btn2">#0F3B5E</drawable>\
+    <drawable name="background_btn3">#FF9800</drawable>\
+    <drawable name="background_btn4">#857F77</drawable>\
+    <drawable name="ic_backspace_black_24dp">#0F3B5E</drawable>\
+</resources>\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Color.xml\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 <?xml version="1.0" encoding="utf-8"?>\
+<resources>\
+    <color name="colorPrimary">#6200EE</color>\
+    <color name="colorPrimaryDark">#3700B3</color>\
+    <color name="colorAccent">#03DAC5</color>\
+    <color name="WhiteText">#FFFFFF</color>\
+    <color name="BlackText">#000000</color>\
+\
+</resources>\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 MainActivity.java\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+package com.example.a02calculator;\
+\
+import androidx.appcompat.app.AppCompatActivity;\
+import android.os.Bundle;\
+import android.annotation.SuppressLint;\
+import android.view.View;\
+import android.widget.TextView;\
+public class MainActivity extends AppCompatActivity \{\
+    TextView user_input, sign_Box;\
+    Double num1, num2, answer;\
+    String sign, val_1, val_2;\
+    boolean has_Dot;\
+    @Override\
+    protected void onCreate(Bundle savedInstanceState) \{\
+        super.onCreate(savedInstanceState);\
+        setContentView(R.layout.
+\f2\i activity_main
+\f1\i0 );\
+        user_input = (TextView) findViewById(R.id.
+\f2\i input_user
+\f1\i0 );\
+        sign_Box = (TextView) findViewById(R.id.
+\f2\i sign_user
+\f1\i0 );\
+        has_Dot = false;\
+\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_0(View view) \{\
+        user_input.setText(user_input.getText() + "0");\
+    \}\
+    @SuppressLint("SetTextI18n")\
+    public void btn_1(View view) \{\
+        user_input.setText(user_input.getText() + "1");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_2(View view) \{\
+        user_input.setText(user_input.getText() + "2");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_3(View view) \{\
+        user_input.setText(user_input.getText() + "3");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_4(View view) \{\
+        user_input.setText(user_input.getText() + "4");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_5(View view) \{\
+        user_input.setText(user_input.getText() + "5");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_6(View view) \{\
+        user_input.setText(user_input.getText() + "6");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_7(View view) \{\
+        user_input.setText(user_input.getText() + "7");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_8(View view) \{\
+        user_input.setText(user_input.getText() + "8");\
+    \}\
+\
+    @SuppressLint("SetTextI18n")\
+    public void btn_9(View view) \{\
+        user_input.setText(user_input.getText() + "9");\
+    \}\
+\
+\
+    public void btn_add(View view) \{\
+        sign = "+";\
+        val_1 = user_input.getText().toString();\
+        user_input.setText(null);\
+        sign_Box.setText("+");\
+        has_Dot = false;\
+    \}\
+\
+    public void btn_subtract(View view) \{\
+        sign = "-";\
+        val_1 = user_input.getText().toString();\
+        user_input.setText(null);\
+        sign_Box.setText("-");\
+        has_Dot = false;\
+    \}\
+\
+    public void btn_multiply(View view) \{\
+        sign = "*";\
+        val_1 = user_input.getText().toString();\
+        user_input.setText(null);\
+        sign_Box.setText("\'d7");\
+        has_Dot = false;\
+    \}\
+\
+    public void btn_divide(View view) \{\
+        sign = "/";\
+        val_1 = user_input.getText().toString();\
+        user_input.setText(null);\
+        sign_Box.setText("\'f7");\
+        has_Dot = false;\
+    \}\
+\
+\
+\
+\
+    public void btn_equal(View view) \{\
+        if (sign == null) \{\
+            sign_Box.setText("Error!");\
+        \} else if (user_input.getText().equals("")) \{\
+            sign_Box.setText("Error!");\
+        \} else if ((sign.equals("+") || sign.equals("-") || sign.equals("*") || sign.equals("/")) && val_1.equals("")) \{\
+            sign_Box.setText("Error!");\
+        \} else \{\
+            switch (sign) \{\
+                default:\
+                    break;\
+\
+                case "+":\
+                    val_2 = user_input.getText().toString();\
+                    num1 = Double.
+\f2\i parseDouble
+\f1\i0 (val_1);\
+                    num2 = Double.
+\f2\i parseDouble
+\f1\i0 (val_2);\
+                    answer = num1 + num2;\
+                    user_input.setText(answer + "");\
+                    sign = null;\
+                    sign_Box.setText(null);\
+                    break;\
+                case "-":\
+                    val_2 = user_input.getText().toString();\
+                    num1 = Double.
+\f2\i parseDouble
+\f1\i0 (val_1);\
+                    num2 = Double.
+\f2\i parseDouble
+\f1\i0 (val_2);\
+                    answer = num1 - num2;\
+                    user_input.setText(answer + "");\
+                    sign = null;\
+                    sign_Box.setText(null);\
+                    break;\
+                case "*":\
+                    val_2 = user_input.getText().toString();\
+                    num1 = Double.
+\f2\i parseDouble
+\f1\i0 (val_1);\
+                    num2 = Double.
+\f2\i parseDouble
+\f1\i0 (val_2);\
+                    answer = num1 * num2;\
+                    user_input.setText(answer + "");\
+                    sign = null;\
+                    sign_Box.setText(null);\
+                    break;\
+                case "/":\
+                    val_2 = user_input.getText().toString();\
+                    num1 = Double.
+\f2\i parseDouble
+\f1\i0 (val_1);\
+                    num2 = Double.
+\f2\i parseDouble
+\f1\i0 (val_2);\
+                    answer = num1 / num2;\
+                    user_input.setText(answer + "");\
+                    sign = null;\
+                    sign_Box.setText(null);\
+                    break;\
+            \}\
+\
+        \}\
+    \}\
+\
+\
+    public void btn_delete(View view) \{\
+        if (user_input.getText().equals("")) \{\
+            user_input.setText(null);\
+        \} else \{\
+            int len = user_input.getText().length();\
+            String s = user_input.getText().toString();\
+            if (s.charAt(len - 1) == '.') \{\
+                has_Dot = false;\
+                user_input.setText(user_input.getText().subSequence(0, user_input.getText().length() - 1));\
+\
+            \} else \{\
+                user_input.setText(user_input.getText().subSequence(0, user_input.getText().length() - 1));\
+            \}\
+        \}\
+    \}\
+\
+    public void btn_clear(View view) \{\
+\
+        user_input.setText(null);\
+        sign_Box.setText(null);\
+        val_1 = null;\
+        val_2 = null;\
+        sign = null;\
+        has_Dot = false;\
+    \}\
+\}\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+}
